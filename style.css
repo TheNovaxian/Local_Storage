@@ -1,0 +1,120 @@
+body{
+    background-image: url(back.jpg);
+   background-color: rgb(255, 255, 255);
+  
+   font: 100% /normal sans-serif;
+   
+}
+
+/* to center the form */
+.container{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 120vh;
+
+}
+
+#form{
+   width: 300px;
+   /* background-image: url(formback.jpg); */
+   background-color: rgb(0, 0, 0);
+   padding: 10px;
+   border-radius: 10px;
+   color: white;
+   font-family:Arial, Helvetica, sans-serif ;
+   font-style:bold;
+  
+}
+
+#form .info{
+    color: rgb(111, 255, 0);
+}
+
+#form input[type="text"],
+#form input[type="number"]{
+   display: block;
+   width: calc(100% - 10px);
+   height: 25px;
+   margin-bottom: 5px;
+
+}
+
+
+#form button{
+   width:100% ;
+   height: 40px;
+   background-color: rgba(0, 247, 255, 0.6);
+   color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(71, 181, 240);
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#form button#retrieve{
+    width:35% ;
+    height: 25px;
+    background-color: rgb(10, 193, 0);
+    color: white;
+   border-radius: 5px;
+   border: 1px solid rgb(51, 255, 0);
+   margin-top: 1px;
+   cursor: pointer;
+   ;
+ }
+ #form button#retrieve1{
+    width:35% ;
+    height: 25px;
+    background-color: rgb(10, 193, 0);
+    color: white;
+   border-radius: 5px;
+   border: 1px solid rgb(51, 255, 0);
+   margin-top: 1px;
+   cursor: pointer;
+   ;
+ }
+
+ #form button#delete{
+    width:35% ;
+    height: 25px;
+    background-color: rgb(10, 193, 0);
+    color: white;
+   border-radius: 5px;
+   border: 1px solid rgb(51, 255, 0);
+   margin-top: 1px;
+   cursor: pointer;
+   ;
+ }
+ #form button#deleteA{
+    width:50% ;
+    height: 25px;
+    background-color: rgb(10, 193, 0);
+    color: white;
+   border-radius: 5px;
+   border: 1px solid rgb(51, 255, 0);
+   margin-top: 1px;
+   cursor: pointer;
+   ;
+ }
+
+ .hide-button{
+    visibility: hidden;
+ }
+
+#form h1{
+   text-align: center;
+}
+
+#form label{
+display: inline-block;
+margin-top: 2px;
+}
+
+
+
+.buttoncontainer{
+   display: flex;
+   flex-direction: row;
+}
+

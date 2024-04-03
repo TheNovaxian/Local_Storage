@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript"  src="java.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+          <form id="form" >
+            <h1>Local Storage Application</h1>
+
+              <div class="input">
+                 <label for="User"> User: </label><br>
+                 <input type="text" id="User" placeholder="Enter User Name" ><br>
+                </div>
+
+                 <div class="input">
+                   <label for="Age">Age:</label><br>
+                    <input type="number" id="Age" placeholder="Enter User Age"><br>
+                     
+                </div>
+                
+                <div class="input">
+                    <label for="Key">Key:</label><br>
+                     <input type="text" id="Key" placeholder="Enter key"><br>
+                      
+                 </div>
+                 <button id="retrieve" type="submit">Save User</button>
+
+                 <div class="input">
+                    <label for="EKey">Enter key to retrieve user:</label><br>
+                     <input type="text" id="EKey" placeholder="Enter key to access user"><br>
+                      
+                 </div>
+                    <button id="retrieve1" type="button" onclick="displayinfo()">Retrieve User</button>
+                      
+                 <h4 class="info"></h4>
+                   
+
+                 <div class="input">
+                    <label for="Key">Enter key to delete user:</label><br>
+                     <input type="text" id="DKey" placeholder="Enter key to delete user"><br>
+                      
+                 </div>
+                 <button id="delete" type="button" onclick="deleteUser()">Delete User</button><br>
+                 <button id="deleteA" type="button" onclick="deleteAllUsers()">Delete All Users</button>
+                  
+        </form>
+       
+    </div>
+
+    
+</body>
+</html>

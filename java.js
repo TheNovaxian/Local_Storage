@@ -1,60 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
-var form = document.getElementById('form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var user = document.getElementById('User').value;
-    var age = document.getElementById('Age').value;
-    var key = document.getElementById('Key').value; 
-    localStorage.setItem('User', user);
-    localStorage.setItem('Age', age);
-    localStorage.setItem('Key', key);
-
-    console.log("User:", user);
-    console.log("Age:", age);
-    console.log("Key:", key);
-  });
-
+    var form = document.getElementById('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        var user = document.getElementById('User').value;
+        var age = document.getElementById('Age').value;
+        var key = document.getElementById('Key').value; 
+        addUser(user, age, key); // Utilize addUser to manage user addition
+    });
 });
-  
-  function displayinfo() {
-    var user = localStorage.getItem('User');
-    var age = localStorage.getItem('Age');
-    var key = localStorage.getItem('Key');
-    var ekey = document.getElementById('EKey').value;
-    console.log("User:", user);
-    console.log("Age:", age);
-    console.log("Key from storage:", key);
-    console.log("Key from input:", ekey);
 
-    if (ekey === key) {
-        var infoList = document.querySelector('.info');
-        infoList.textContent = `Username: ${user}, Age: ${age}`;
+function addUser(user, age, key) {
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    users.push({ user, age, key });
+    localStorage.setItem('users', JSON.stringify(users));
+}
+
+function displayinfo() {
+    var ekey = document.getElementById('EKey').value;
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    var matchedUser = users.find(user => user.key === ekey);
+
+    var infoList = document.querySelector('.info');
+    if (matchedUser) {
+        infoList.textContent = `Username: ${matchedUser.user}, Age: ${matchedUser.age}`;
     } else {
-        var infoList = document.querySelector('.info');
-        infoList.textContent = 'Key does not match'; 
+        infoList.textContent = 'Key does not match';
     }
 }
 
 function deleteUser() {
-    var key = localStorage.getItem('Key');
-    var dkey = document.getElementById('DKey').value.trim(); 
+    var dkey = document.getElementById('DKey').value.trim();
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    var filteredUsers = users.filter(user => user.key !== dkey);
 
-    if (dkey === key) {
-        localStorage.removeItem('User');
-        localStorage.removeItem('Age');
-        localStorage.removeItem('Key');
-
-        var infoList = document.querySelector('.info');
-        infoList.textContent = "User Deleted";
+    if (users.length !== filteredUsers.length) {
+        localStorage.setItem('users', JSON.stringify(filteredUsers));
+        document.querySelector('.info').textContent = "User Deleted";
     } else {
-        var infoList = document.querySelector('.info');
-        infoList.textContent = "Key does not match"; 
+        document.querySelector('.info').textContent = "Key does not match";
     }
 }
 
-
-  function deleteAllUsers() {
+function deleteAllUsers() {
     localStorage.clear();
-    var infoList = document.querySelector('.info');
-    infoList.textContent = 'All users deleted';
+    document.querySelector('.info').textContent = 'All users deleted';
 }
-  

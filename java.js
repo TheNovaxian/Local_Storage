@@ -9,6 +9,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// function setCookie(name, value){
+//     document.cookie= `${name} = ${value}`;
+//     // alert(document.cookie);
+// }
+
+// function getCookie(name){
+//     const cookies = document.cookie.split(';');
+//     for (let cookie of cookies){
+//         const [cookieName, cookieValue] = cookie.split('=');
+//         if (cookieName.trim() === name){
+//             return cookieValue;
+//         }
+//     }
+//     return null;
+// }
+function setCookie() {
+    const name = document.getElementById('name').value;
+    document.cookie = `username=${name}`;
+}
+
+function internalCookie(){
+    document.cookie = "Jason" 
+}
+
+function getCookie() {
+    const name = document.getElementById('name').value;
+    const value = getCookieValue('username');
+    alert(`Value: ${value}`);
+}
+
+function getCookieValue(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.split('=');
+        if (cookieName.trim() === name) {
+            return cookieValue;
+        }
+    }
+    return null;
+}
+
 function addUser(user, age, key) {
     var users = JSON.parse(localStorage.getItem('users')) || [];
     users.push({ user, age, key });
